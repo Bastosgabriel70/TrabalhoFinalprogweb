@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controle de Gastos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+    <header>
+        <div id="appLogo">
+            <i class="fa-solid fa-coins"></i>
+        </div>
+        <div id="appName">
+            <span>Controle</span>
+            <span>Financeiro</span>
+        </div>
+        <div id="appDefSalario">
+            <span>Salário</span>
+            <button id="receita" type="submit"><i class="fas fa-add"></i></button>
+        </div>
+    </header>
+    <main>
+        <section id="container">
+            <div id="modal" class="modal hidden">
+                <form class="modal-form">
+                    <h2>Adicionar Registro</h2>
+            
+                    <label for="nomeGasto">Descrição:</label>
+                    <input type="text" id="nomeGasto" placeholder="Ex: Conta de Luz" maxlength="50" required>
+            
+                    <label for="tipoGasto">Tipo:</label>
+                    <select id="tipoGasto" required>
+                        <option value="" disabled selected>Selecione o tipo</option>
+                        <option value="ganho">Ganho</option>
+                        <option value="gasto">Gasto</option>
+                    </select>
+            
+                    <label for="dataGasto">Data:</label>
+                    <input type="date" id="dataGasto" required>
+            
+                    <label for="valorGasto">Valor (R$):</label>
+                    <input type="number" id="valorGasto" placeholder="Ex: 120.50" max="300000" step="0.01" required>
+            
+                    <div class="modal-actions">
+                        <button type="button" id="cancelar">Cancelar</button>
+                        <button type="submit" id="confirmar">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+            <button id="mais" type="submit" disabled><span>Novo registro</span></button>
+            
+            <div id="itens">
+                <h2>Registros</h2>
+                <ol></ol>
+            </div>
+        </section>
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <div class="resumo-container">
+                <div class="resumo-item">
+                    <label for="previsto">Previsto:</label>
+                    <input id="previsto" type="text" value="0.00" disabled>
+                </div>
+                <div class="resumo-item">
+                    <label for="efetivado">Efetivado:</label>
+                    <input id="efetivado" type="text" value="0.00" disabled>
+                </div>
+                <div class="resumo-item">
+                    <label for="saldo">Restante:</label>
+                    <input id="saldo" type="text" value="0.00" disabled>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

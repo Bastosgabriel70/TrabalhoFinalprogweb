@@ -1,0 +1,451 @@
+:root {
+    --bgColor: #231F20;
+    --surfaceColor: #1B1718;
+    --textColor: white;
+    --headerText: #24FB17;
+    --coinColor: #4C7A49;
+    --border: #ccc;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+    font-family: "Outfit", Sans-Serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--surfaceColor);
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0 0 3rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#appLogo {
+    font-size: 2.1rem;
+    color: var(--coinColor);
+}
+
+#appName {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Bebas Neue", Sans-Serif;
+}
+
+#appName span {
+    color: var(--headerText);
+    font-weight: bold;
+    font-size: 1.9rem;
+    flex-wrap: wrap;
+}
+
+#appDefSalario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+#appDefSalario span {
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+#receita {
+    position: relative;
+    overflow: hidden;
+    transition: .5s ease-in-out;
+    border: none;
+    border-radius: 1rem;
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+}
+
+#receita::before,
+#receita::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: opacity 1s ease;
+}
+
+#receita::before {
+  background: linear-gradient(to right, #03A750, #87C540);
+  opacity: 1;
+  z-index: 1;
+}
+
+#receita::after {
+  background: linear-gradient(to right, #87C540, #03A750);
+  opacity: 0;
+  z-index: 2;
+}
+
+#receita:hover::before {
+  opacity: 0;
+}
+
+#receita:hover::after {
+  opacity: 1;
+}
+
+#receita i {
+    position: relative;
+    z-index: 3;
+}
+
+main {
+    width: 100%;
+    min-height: 100%;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 4rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mais {
+    position: relative;
+    overflow: hidden;
+    transition: .5s ease-in-out;
+    border: none;
+    border-radius: 5rem;
+    width: 100%;
+    max-width: 600px;
+    height: 4rem;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+}
+
+#mais:disabled {
+    background: linear-gradient(to right, #03A750, #87C540);
+    filter: brightness(0.75) saturate(0.5);
+}
+
+#mais:enabled::before,
+#mais:enabled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: opacity 1s ease;
+}
+
+#mais:enabled::before {
+  background: linear-gradient(to right, #03A750, #87C540);
+  opacity: 1;
+  z-index: 1;
+}
+
+#mais:enabled::after {
+  background: linear-gradient(to right, #87C540, #03A750);
+  opacity: 0;
+  z-index: 2;
+}
+
+#mais:hover:enabled::before {
+  opacity: 0;
+}
+
+#mais:hover:enabled::after {
+  opacity: 1;
+}
+
+#mais span {
+    position: relative;
+    z-index: 3;
+}
+
+#itens {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#itens h2 {
+    position: relative;
+    font-size: 2rem;
+    width: 100%;
+}
+
+#itens h2::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: var(--border);
+    width: 100%;
+    height: .2rem;
+}
+
+#itens ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    background: linear-gradient(to right, #2a2a2a, #1c1c1c);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+}
+
+.item .info {
+    max-width: 45%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.item .info .descricao {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item .info .tipo {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.item .info .tipo .representacao {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+}
+
+.item .info .tipo .ganho {
+    background-color: #24FB17;
+}
+
+.item .info .tipo .gasto {
+    background-color: #ff5e57;
+}
+
+.item .info .tipo span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.item .detalhes {
+    width: 100%;
+    max-width: 45%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+.item .detalhes .valor {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.item .detalhes .valor.positivo {
+    color: #24FB17;
+}
+
+.item .detalhes .valor.negativo {
+    color: #ff5e57;
+}
+
+.item .detalhes .remover {
+    background-color: #ff5e57;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    transition: 1s ease;
+    width: 3rem;
+    height: 3rem;
+}
+
+.item .detalhes .remover:hover {
+    background-color: #F9403A;
+    color: #ccc;
+    transition: .25s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-form {
+    background-color: var(--surfaceColor);
+    padding: 4rem 2rem;
+    border-radius: 3rem;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+.modal-form h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.modal-form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.modal-form input, .modal-form select {
+    background-color: var(--bgColor);
+    color: #ccc;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.modal-actions button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+#cancelar {
+    background-color: #ff5e57;
+}
+
+#cancelar:hover {
+    background-color: #F9403A;
+}
+
+#confirmar {
+    user-select: none;
+    background-color: #00b894;
+}
+
+#confirmar:hover {
+    background-color: #019875;
+}
+
+#resumo {
+    position: absolute;
+    bottom: 0;
+    padding: 2rem 3rem;
+    width: 100%;
+    background: var(--surfaceColor);
+    border-radius: 3rem 3rem 0 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#resumo h2 {
+    position: relative;
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+#resumo h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: .2rem;
+    background-color: var(--border);
+}
+
+.resumo-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.resumo-item {
+    flex: 1 1 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resumo-item label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.resumo-item input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: .8rem;
+    text-align: right;
+    background-color: var(--bgColor);
+    border: none;
+    padding: 1rem;
+    color: #ccc;
+}
